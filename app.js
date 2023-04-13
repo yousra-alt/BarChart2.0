@@ -10,9 +10,22 @@ const data = [
 function start() {
   console.log("Hello");
 
+  setInterval(update,1000);
   displayAllBars()
+
 }
 
+
+function update() {
+displayAllBars()
+updateData()
+}
+
+
+function getNumberOfCustomers() {
+  // FAKE: gives a completely random number
+  return Math.floor(Math.random() * 32);
+}
 function displayAllBars() {
   const bars = document.querySelectorAll(".bar");
   // querySelectorAll vælger alle div class.
@@ -25,3 +38,17 @@ function displayAllBars() {
     bar.style.height = `${h}px`;
   }
 }
+
+
+function updateData () {
+    // data.push(Math.floor(Math.random()*32));
+    // data.shift();
+      // add new value to array
+const queueSize = getNumberOfCustomers();
+  data.push(queueSize);
+  data.shift();
+       
+      }
+
+    
+
